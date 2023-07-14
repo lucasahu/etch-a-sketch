@@ -1,6 +1,21 @@
+let currentSize = 0;
+
 // Helper Functions
 
+function changeColor () {
+    
+}
+
+function clearGrid () {
+    let fullGrid = grid.querySelectorAll('div');
+    fullGrid.forEach((div) => div.remove());
+    changeGridSize(currentSize);
+}
+
 function changeGridSize (number) {
+    if (number == undefined) {
+        number = currentSize
+    }
     grid.style.gridTemplateColumns = `repeat(${number}, 1fr)`;
     grid.style.gridTemplateRows = `repeat(${number}, 1fr)`;
 
@@ -9,10 +24,11 @@ function changeGridSize (number) {
     for (let i = 0; i < size; i++) {
         let gridbox = document.createElement('div');
         gridbox.addEventListener('mouseover', () => {
-            gridbox.style.backgroundColor = 'black';    
+            gridbox.style.backgroundColor = 'black'
         });
         grid.insertAdjacentElement('beforeend', gridbox);
     }
+    currentSize = number;
 }
 
 // DOM Declaration
@@ -30,12 +46,9 @@ grid.className = 'grid';
 
 //DOM Event Listeners
 
-document.addEventListener("DOMContentLoaded", () => changeGridSize(32))
-  
+document.addEventListener("DOMContentLoaded", () => changeGridSize(32));
 
-resetButton.addEventListener('click', () => {
-    console.log('reset')
-})
+resetButton.addEventListener('click', () => clearGrid());
 
 lowButton.addEventListener('click', () => changeGridSize(16));
 
