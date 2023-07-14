@@ -1,9 +1,13 @@
 let currentSize = 0;
-
+let color = 'black';
 // Helper Functions
 
-function changeColor () {
-    
+function gridColor () {
+    this.style.backgroundColor = color;
+}
+
+function changeColor (requestedColor) {
+    color = requestedColor;
 }
 
 function clearGrid () {
@@ -23,9 +27,7 @@ function changeGridSize (number) {
 
     for (let i = 0; i < size; i++) {
         let gridbox = document.createElement('div');
-        gridbox.addEventListener('mouseover', () => {
-            gridbox.style.backgroundColor = 'black'
-        });
+        gridbox.addEventListener('mouseover', gridColor);
         grid.insertAdjacentElement('beforeend', gridbox);
     }
     currentSize = number;
@@ -38,6 +40,13 @@ const lowButton = document.querySelector('.lowgrid-button');
 const midButton = document.querySelector('.midgrid-button');
 const highButton = document.querySelector('.highgrid-button');
 const resetButton = document.querySelector('.reset-button');
+const eraserButton = document.querySelector('.eraser-button');
+const redButton = document.querySelector('.red-button');
+const blueButton = document.querySelector('.blue-button');
+const greenButton = document.querySelector('.green-button');
+const blackButton = document.querySelector('.black-button');
+const rainbowButton = document.querySelector('.rainbow-button');
+
 //DOM Append
 
 //DOM Methods
@@ -50,8 +59,23 @@ document.addEventListener("DOMContentLoaded", () => changeGridSize(32));
 
 resetButton.addEventListener('click', () => clearGrid());
 
+eraserButton.addEventListener('click', () => changeColor('white'));
+
+lowButton.addEventListener('click', () => clearGrid());
 lowButton.addEventListener('click', () => changeGridSize(16));
 
+midButton.addEventListener('click', () => clearGrid());
 midButton.addEventListener('click', () => changeGridSize(32));
 
+highButton.addEventListener('click', () => clearGrid());
 highButton.addEventListener('click', () => changeGridSize(64));
+
+redButton.addEventListener('click', () => changeColor('red'));
+
+blueButton.addEventListener('click', () => changeColor('blue'));
+
+greenButton.addEventListener('click', () => changeColor('green'));
+
+blackButton.addEventListener('click', () => changeColor('black'));
+
+rainbowButton.addEventListener('click', () => changeColor('rainbow'));
