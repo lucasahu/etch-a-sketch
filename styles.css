@@ -88,6 +88,8 @@ body {
     align-items: center;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
+    font-size: 40px;
+    margin: 20px;
 }
 
 .footer > p {
@@ -100,35 +102,59 @@ body {
 
 button {
     border: 2px solid gray;
+    box-shadow: 2px 2px 1px 1px gray;
     font-weight: bold;
     border-radius: 5px;
     padding: 5px;
     font-family:'Courier New', Courier, monospace
 }
 
+button:active {
+    background-color: gray;
+}
+
 .red-button {
     background-color: red;
     color: white;
     border: 2px solid #8D1313;
+    box-shadow: 2px 2px 1px 1px #8D1313;
+}
+
+.red-button:active {
+    background-color: #8D1313;
 }
 
 .blue-button {
     background-color: blue;
     color: white;
     border: 2px solid #0A1D7A;
+    box-shadow: 2px 2px 1px 1px #0A1D7A;
+}
+
+.blue-button:active {
+    background-color: #0A1D7A;
 }
 
 .green-button {
     background-color: green;
     color: white;
     border: 2px solid #076405;
+    box-shadow: 2px 2px 1px 1px #076405;
+}
+
+.green-button:active {
+    background-color: #076405;
 }
 
 .black-button {
     background-color: #171717;
     color: white;
     border: 2px solid black;
+    box-shadow: 2px 2px 1px 1px black;
+}
 
+.black-button:active {
+    background-color: black;
 }
 
 .rainbow-button {
@@ -136,4 +162,9 @@ button {
     color: white;
     background-image: linear-gradient(319deg, #ff1493 0%, #0000ff 37%, #ff8c00 100%);
     border: 2px solid #B87B00;
+    box-shadow: 2px 2px 1px 1px #B87B00;
+}
+
+.rainbow-button:active {
+    background-image: linear-gradient(319deg, #920953 0%, #000072 37%, #AA5D00 100%);
 }

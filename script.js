@@ -1,9 +1,16 @@
+// Global Variables
+
 let currentSize = 0;
 let color = 'black';
+
 // Helper Functions
 
 function gridColor () {
-    this.style.backgroundColor = color;
+    if (color === 'rainbow') {
+        this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    } else {
+        this.style.backgroundColor = color;
+    }
 }
 
 function changeColor (requestedColor) {
@@ -34,6 +41,7 @@ function changeGridSize (number) {
 }
 
 // DOM Declaration
+
 const main = document.querySelector('div.main');
 const grid = document.querySelector('div.grid');
 const lowButton = document.querySelector('.lowgrid-button');
@@ -47,8 +55,6 @@ const greenButton = document.querySelector('.green-button');
 const blackButton = document.querySelector('.black-button');
 const rainbowButton = document.querySelector('.rainbow-button');
 
-//DOM Append
-
 //DOM Methods
 
 grid.className = 'grid';
@@ -56,26 +62,16 @@ grid.className = 'grid';
 //DOM Event Listeners
 
 document.addEventListener("DOMContentLoaded", () => changeGridSize(32));
-
 resetButton.addEventListener('click', () => clearGrid());
-
 eraserButton.addEventListener('click', () => changeColor('white'));
-
 lowButton.addEventListener('click', () => clearGrid());
 lowButton.addEventListener('click', () => changeGridSize(16));
-
 midButton.addEventListener('click', () => clearGrid());
 midButton.addEventListener('click', () => changeGridSize(32));
-
 highButton.addEventListener('click', () => clearGrid());
 highButton.addEventListener('click', () => changeGridSize(64));
-
 redButton.addEventListener('click', () => changeColor('red'));
-
 blueButton.addEventListener('click', () => changeColor('blue'));
-
 greenButton.addEventListener('click', () => changeColor('green'));
-
 blackButton.addEventListener('click', () => changeColor('black'));
-
 rainbowButton.addEventListener('click', () => changeColor('rainbow'));
